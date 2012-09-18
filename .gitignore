@@ -2,7 +2,6 @@
 #ignore thumbnails created by windows
 Thumbs.db
 #Ignore files build by Visual Studio
-![Ll]ib/
 *.obj
 *.exe
 *.pdb
