@@ -2,6 +2,7 @@
 #ignore thumbnails created by windows
 Thumbs.db
 #Ignore files build by Visual Studio
+![Ll]ib/
 *.obj
 *.exe
 *.pdb
@@ -32,3 +33,4 @@ artifacts/Source/Orchard.Source.zip
 src/Orchard.Web/App_Data/cache.dat
 src/Orchard.Web/App_Data/Sites/*
 src/Orchard.Web/Media/Default/RecipeJournal/*
+
