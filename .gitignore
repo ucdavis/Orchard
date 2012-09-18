@@ -29,3 +29,6 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 artifacts/MsDeploy/Orchard.Web.zip
 artifacts/Source/Orchard.Source.zip
+src/Orchard.Web/App_Data/cache.dat
+src/Orchard.Web/App_Data/Sites/*
+src/Orchard.Web/Media/Default/RecipeJournal/*
