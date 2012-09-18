@@ -33,3 +33,4 @@ src/Orchard.Web/App_Data/cache.dat
 src/Orchard.Web/App_Data/Sites/*
 src/Orchard.Web/Media/Default/RecipeJournal/*
 
+src/Orchard.Web/App_Data/*
