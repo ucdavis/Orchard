@@ -34,3 +34,7 @@ src/Orchard.Web/App_Data/Sites/*
 src/Orchard.Web/Media/Default/RecipeJournal/*
 
 src/Orchard.Web/App_Data/*
+src/Orchard.Web/Media/Default/*
+src/Orchard.Web/Modules/*
+src/Orchard.Web/Themes/*
+src/packages/*
