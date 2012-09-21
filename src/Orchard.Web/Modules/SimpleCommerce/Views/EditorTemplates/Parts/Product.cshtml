@@ -1,0 +1,7 @@
+﻿@model SimpleCommerce.Models.ProductPart
+<fieldset>
+    <label class="sub" for="Sku">@T("Sku")</label><br />
+    @Html.TextBoxFor(m => m.Sku, new { @class = "text" })<br />
+    <label class="sub" for="Price">@T("Price")</label><br />
+    @Html.TextBoxFor(m => m.Price, new { @class = "text" })
+</fieldset>

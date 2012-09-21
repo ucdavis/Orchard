@@ -1,0 +1,11 @@
+﻿Name: SimpleCommerce
+AntiForgery: enabled
+Author: Jason Sylvestre
+Website: http://orchardproject.net
+Version: 1.0
+OrchardVersion: 1.0
+Description: A simple commerce module
+Features:
+    SimpleCommerce:
+        Description: A simple product part.
+        Category: Commerce
