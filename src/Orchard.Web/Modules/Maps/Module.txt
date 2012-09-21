@@ -1,0 +1,11 @@
+﻿Name: Maps
+AntiForgery: enabled
+Author: Jason Sylvestre
+Website: http://orchardproject.net
+Version: 1.0
+OrchardVersion: 1.0
+Description: Adds a map image to content items, based on long and lat
+Features:
+    Maps:
+        Description: Adds a map image to content items, based on long and lat.
+        Category: Geolocation
