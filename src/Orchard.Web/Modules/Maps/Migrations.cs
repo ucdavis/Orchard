@@ -24,5 +24,17 @@ namespace Maps {
 
             return 1;
         }
+
+        public int UpdateFrom1()
+        {
+            // Create a new widget content type with our map
+            ContentDefinitionManager.AlterTypeDefinition("MapWidget", cfg => cfg
+                .WithPart("MapPart")
+                .WithPart("WidgetPart")
+                .WithPart("CommonPart")
+                .WithSetting("Stereotype", "Widget"));
+
+            return 2;
+        }
     }
 }
