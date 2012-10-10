@@ -23,6 +23,15 @@
         selectedItem.addClass("selected");
         selectImage("#lib-", selectedItem.attr("data-imgsrc"));
     });
+
+    $(".media-file").live("click", function () {
+        if (selectedItem) {
+            selectedItem.removeClass("selected");
+        }
+        selectedItem = $(this);
+        selectedItem.addClass("selected");
+        selectFile("#fil-", selectedItem.attr("data-imgsrc"));
+    });
     // maintain aspect ratio when width or height is changed
     $("#img-width, #lib-width").live("change", fixAspectHeight);
     $("#img-height, #lib-height").live("change", fixAspectWidth);
@@ -30,6 +39,11 @@
     $("#img-insert, #lib-insert").live("click", function () {
         if ($(this).hasClass("disabled")) return;
         publishInsertEvent(this);
+    });
+
+    $("#fil-insert").live("click", function () {
+        if ($(this).hasClass("disabled")) return;
+        publishInsertFileEvent(this);
     });
 
     $(".media-filename").live("click", function (ev) {
@@ -42,6 +56,14 @@
             src = attributeEncode(self.attr("href")),
             w = window.open("", self.attr("target"));
         w.document.write("<!DOCTYPE html><html><head><title>" + src + "</title></head><body><img src=\"" + src + "\" alt=\"\" /></body></html>");
+    });
+
+    $(".mediafile-filename").live("click", function (ev) {
+        // when clicking on a filename in the gallery view,
+        // we interrupt the normal operation and write a <img>
+        // tag into a new window to ensure the image displays in
+        // a new window instead of being 'downloaded' like in Chrome
+        ev.preventDefault();
     });
 
     $("#createFolder").live("click", function () {
@@ -140,6 +162,19 @@
         $(prefix + "insert").attr("disabled", !src).toggleClass("disabled", !src);
     }
 
+    function selectFile(prefix, src) {
+        //        $(prefix + "preview")
+        //            .css({
+        //                display: "none",
+        //                width: "",
+        //                height: ""
+        //            })
+        //            .attr("src", src);
+        //$(prefix + "loader").attr("src", src);
+        $(prefix + "src").val(src);
+        $(prefix + "insert").attr("disabled", !src).toggleClass("disabled", !src);
+    }
+
     function getIdPrefix(e) {
         return "#" + e.id.substr(0, 4);
     }
@@ -155,6 +190,36 @@
                 height: $(prefix + "height").val()
             };
         img.html = getImageHtml(img);
+        try {
+            window.opener.jQuery[query("callback")]({ img: img });
+        }
+        catch (ex) {
+            alert($.mediaPicker.cannotPerformMsg);
+        }
+        window.close();
+    }
+
+    function publishInsertFileEvent(button) {
+        var prefix = getIdPrefix(button),
+            img = {
+                src: $(prefix + "src").val(),
+                alt: $(prefix + "alt").val(),
+                title: $(prefix + "title").val(),
+                target: ""
+            };
+
+        if ($(prefix + "newtab:checked").val()) {
+            img.target = 'target="_blank"';
+        }
+        
+        if (img.alt === "") {
+            img.alt = "Click Here";
+        }
+        if (img.title !== "") {
+            img.title = '"title="' + img.title + '"';
+        }
+        //<a target="_blank" title="My PDF" href="/OrchardLocal/Media/Default/SamplePDFs/9814.pdf">condimentum </a>
+        img.html = '<a ' + img.target + ' ' + img.title + ' href="' + img.src + '"> ' + img.alt + ' </a>';
         try {
             window.opener.jQuery[query("callback")]({ img: img });
         }

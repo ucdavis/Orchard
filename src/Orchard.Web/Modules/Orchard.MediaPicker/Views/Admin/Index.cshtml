@@ -39,12 +39,16 @@
     <ul>
         <li><a href="#tab-url" data-edittext="@T("Update/Upload Image")" data-edittext-content="true">@T("Insert/Upload Image")</a></li>
         <li><a href="#tab-gallery">@T("Browse Media")</a></li>
+        <li><a href="#file-gallery">@T("Browse Files")</a></li>
     </ul>
     <div id="tab-url">
 @Html.Partial("Tab_Url", Model)
     </div>
     <div id="tab-gallery">
-@Html.Partial("Tab_Gallery", Model)
+        @Html.Partial("Tab_Gallery", Model)
+    </div>
+    <div id="file-gallery">
+        @Html.Partial("File_Gallery", Model)
     </div>
 </div>
 
