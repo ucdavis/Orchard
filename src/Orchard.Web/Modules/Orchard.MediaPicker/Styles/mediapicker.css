@@ -69,6 +69,7 @@ table.items td.media-thumbnail
 /*.media-item:hover, .selected:hover { background-color: #f3f5ef; }*/
 
 .media-item:hover, .selected:hover { cursor:pointer; }
+.media-file:hover, .selected:hover { cursor:pointer; }
 
 .selected { background: #dee4cf; }
 
